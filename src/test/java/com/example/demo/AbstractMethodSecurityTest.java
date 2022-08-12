@@ -20,15 +20,15 @@ public abstract class AbstractMethodSecurityTest {
     TestRestTemplate restTemplate;
 
     @Test
-    void endpointAllowingROLE_GUESTshouldAllowGuest() {
-        var response = executeBasicAuthRequest("/helloRoleGuest", CommonSecurityConfiguration.USER_GUEST);
+    void rolesAllowed_GUEST() {
+        var response = executeBasicAuthRequest("/rolesAllowed_GUEST", CommonSecurityConfiguration.USER_GUEST);
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
 
     @Test
-    void endpointAllowingGUESTshouldAllowGuest() {
-        var response = executeBasicAuthRequest("/helloGuest", CommonSecurityConfiguration.USER_GUEST);
+    void rolesAllowed_ROLE_GUEST() {
+        var response = executeBasicAuthRequest("/rolesAllowed_ROLE_GUEST", CommonSecurityConfiguration.USER_GUEST);
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
